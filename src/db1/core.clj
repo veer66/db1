@@ -1,6 +1,7 @@
 (ns db1.core
   (:require [hikari-cp.core :refer [make-datasource]]
-            [clojure.java.jdbc :as j])
+            [clojure.java.jdbc :as j]
+            [honeysql.core :as sql])
   (:gen-class))
 
 (def datasource-options {:pool-name          "db-pool"
@@ -17,4 +18,6 @@
   [& args]
   (j/with-db-connection [conn {:datasource @datasource}]
     (println (j/query conn
-                      "SELECT * FROM person"))))
+                      (-> {:select :* :from :person}
+                          sql/build
+                          sql/format)))))
