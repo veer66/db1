@@ -5,7 +5,8 @@
             :url "https://www.eclipse.org/legal/epl-2.0/"}
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/java.jdbc "0.7.10"]
-                 [org.postgresql/postgresql "42.2.8.jre7"]]
+                 [org.postgresql/postgresql "42.2.8.jre7"]
+                 [hikari-cp "2.9.0"]]
   :main ^:skip-aot db1.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
