@@ -3,11 +3,6 @@
             [clojure.java.jdbc :as j])
   (:gen-class))
 
-(def db {:dbtype "postgresql"
-         :dbname "db1"
-         :host "localhost"
-         :user "postgres"})
-
 (def datasource-options {:pool-name          "db-pool"
                          :adapter            "postgresql"
                          :username           "postgres"
