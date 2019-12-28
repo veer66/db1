@@ -13,12 +13,28 @@ cat v1.sql | docker run -i --net=host postgres:12 psql -h localhost -U postgres 
 ````
 
 
+## Prepare
+
+### Docker
+
+````
+docker run --rm -it -u 1000 --net=host -v $(pwd):/work -e HOME=/work -w /work clojure:tools-deps bash
+````
+
+### Migrate DB
+
+```
+clojure -m db1.migrate
+```
+
 ## Run
 
 ````
-docker run --rm -it -u 1000 --net=host -v $(pwd):/work -e HOME=/work -w /work clojure:tools-deps
+clojure -m db1.core
 ````
 
+## Create migration
+
 ````
-clojure -m db1.core
+clojure -m db1.create-migration <name>
 ````

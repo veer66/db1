@@ -5,12 +5,6 @@
             [honeysql.helpers :refer :all :as helpers])
   (:gen-class))
 
-(def datasource-options {:pool-name          "db-pool"
-                         :adapter            "postgresql"
-                         :username           "postgres"
-                         :database-name      "db1"
-                         :server-name        "localhost"})
-
 (defonce datasource
   (delay (make-datasource datasource-options)))
 
