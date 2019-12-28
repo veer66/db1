@@ -4,16 +4,10 @@
             [clojure.edn :as edn]))
 
 (def config {:store :database
-             :db  {:dbtype "postgresql"
-                   :dbname "db1"
-                   :host "localhost"
-                   :user "postgres"}
-
-             ;; (-> "db.edn"
-             ;;         slurp
-             ;;         read-string
-             ;;         make-datasource)
-             })
+             :db  (-> "db.edn"
+                      slurp
+                      read-string
+                      make-datasource)})
 
 (defn -main
   []

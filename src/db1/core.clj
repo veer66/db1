@@ -6,10 +6,12 @@
   (:gen-class))
 
 (defonce datasource
-  (delay (make-datasource datasource-options)))
+  (delay (-> "db.edn"
+             slurp
+             read-string
+             make-datasource)))
 
 (defn -main
-  "I don't do a whole lot ... yet."
   [& args]
   (let [my-telno "038"]
     (j/with-db-connection [conn {:datasource @datasource}]
