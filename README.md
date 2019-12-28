@@ -11,3 +11,14 @@ sudo docker run -v $(pwd)/data:/var/lib/postgresql/data --net=host -e POSTGRES_D
 ````
 cat v1.sql | sudo docker run -i --net=host postgres:12 psql -h localhost -U postgres db1
 ````
+
+
+## Run
+
+````
+docker run --rm -it -u 1000 --net=host -v $(pwd):/work -e HOME=/work -w /work clojure:tools-deps
+````
+
+````
+clojure -m db1.core
+````
