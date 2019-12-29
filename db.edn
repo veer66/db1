@@ -1,5 +1,4 @@
-{:pool-name          "db-pool"
- :adapter            "postgresql"
- :username           "postgres"
- :database-name      "db1"
- :server-name        "localhost"}
+{:dbtype "postgresql"
+ :dbname "db1"
+ :user "postgres"
+ :host "localhost"}

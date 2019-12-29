@@ -1,13 +1,14 @@
 (ns db1.migrate
   (:require [migratus.core :as migratus]
-            [hikari-cp.core :refer [make-datasource]]
+            [next.jdbc :as j]
             [clojure.edn :as edn]))
 
+(def db-spec (-> "db.edn"
+                 slurp
+                 read-string))
+
 (def config {:store :database
-             :db  (-> "db.edn"
-                      slurp
-                      read-string
-                      make-datasource)})
+             :db (j/get-datasource db-spec)})
 
 (defn -main
   []
